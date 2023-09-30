@@ -56,23 +56,17 @@ fx = []
 for i in x: fx.append(f(i))
 
 d2f_trapez = []
-I,Err_composed,Err_asympt = 0,0,0
+I,Err_asympt = 0,0,0
 for i in range(0,len(fx)-1):
 
     # In integral
     I_n = (fx[i+1]+fx[i])* 1/2 * (x[i+1]-x[i])
     I += I_n
 
-    # E_n composed error
-    if i == 0:
-        Err_n = -1/12 * (x[i+1]-x[i])**3 * d2f(1/2*(x[i+1]+x[i]),h)
-    else:
-        Err_n = -1/12 * (x[i+1]-x[i]) * h**2 * d2f(1/2*(x[i+1]+x[i]),h)
-    Err_composed += Err_n
-
     # E_n asymptotic error
     Err_n = -1/12 * (x[i+1]-x[i])**2 * (df(x[i+1],h)-df(x[i],h))
     Err_asympt += Err_n
+
 
 #####################################################################
 # *** Method 2: Corrected trapezoidal rule ***
