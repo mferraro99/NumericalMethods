@@ -10,7 +10,7 @@ import sys
 
 # Define the type of function (continous or pointwise)
 # C -> Continous , P -> Pointwise
-function_type = "P"
+function_type = "C"
 
 # Constants definition
 e = mt.e
